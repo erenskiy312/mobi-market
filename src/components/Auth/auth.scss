@@ -1,0 +1,13 @@
+div{
+    .register-container{
+        display: flex;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 21%;
+        gap: 26px
+    }
+}
