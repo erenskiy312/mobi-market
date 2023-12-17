@@ -1,3 +1,4 @@
+import { Formik } from 'formik';
 import React from 'react';
 import Background from '../img/mobimarket-background.svg'
 import "./auth.scss"
@@ -6,11 +7,13 @@ const Register = () => {
         <div>
             <div className='register-container'>
             <img src={Background} alt="" />
-            <form action="">
-                <input type="text" />
-                <input type="text" />
-                <button>add</button>
-            </form>
+            <Formik
+            initialValues={{
+                name: '',
+                password: ''
+            }}
+            >
+            </Formik>
             </div>
         </div>
     );

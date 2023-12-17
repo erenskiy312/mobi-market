@@ -7,7 +7,35 @@ div{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 21%;
-        gap: 26px
+        margin-left: 11%;
+        margin-top: -21%;
+        gap: 26px;
+
+        .name-input, .password-input{
+            border: none;
+            border-bottom: 1px solid #c2bebe;
+            font-size: 16px;
+            height: 2%;
+            width: 56vh;
+            outline: 0;
+        }
+
+        p{
+          margin-top: -5%;
+            a{
+            text-decoration: none;
+            color: #5458EA;
+            font-size: 14px;
+            }
+        }
+
+        button{
+            color: white;
+            border: none;
+            background: #c2bebe;
+            padding: 3%;
+            border-radius: 47px;
+            font-size: 16px;
+        }
     }
 }
