@@ -45,7 +45,7 @@ const Login = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                          />
-                         <p><a href="#">Забыли пароль</a></p>
+                         <p className='forgot-password'><a href="#">Забыли пароль</a></p>
                          {/* {touched.password && errors.password && <p>{errors.password}</p>} */}
                         <button
                         disabled={!isValid && !touched}
@@ -54,9 +54,11 @@ const Login = () => {
                         >
                         Войти
                         </button>
+                        <p className='register-link'><a href="#">Зарегистрироваться</a></p>
                     </form>
                 )}
             </Formik>
+                
             </div>
         </div>
     );
