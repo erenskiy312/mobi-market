@@ -20,6 +20,28 @@ div{
             outline: 0;
         }
 
+        .login-error-name{
+            position: absolute;
+            color: red;
+            font-size: 15px;
+            margin-top: -15vh;
+        }
+
+        .eye-disable, 
+        .eye-active{
+            position: absolute;
+            margin-left: 40vh;
+            margin-top: -4%;
+            cursor: pointer;
+        }
+
+        .login-error-password{
+            position: absolute;
+            color: red;
+            font-size: 15px;
+            margin-top: 21px;
+        }
+
         .forgot-password{
           margin-top: -3%;
             a{
@@ -30,7 +52,19 @@ div{
             }
         }
 
-        button{
+        button:enabled{
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 47px;
+            padding: 4%;
+            background: #5458EA;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:disabled{
             font-size: 16px;
             color: white;
             border: none;
@@ -38,6 +72,8 @@ div{
             padding: 4%;
             background: #bababa;
             font-weight: 600;
+            cursor: default;
+            transition: 0.2s;
         }
 
         .register-link{
