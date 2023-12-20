@@ -110,7 +110,7 @@ const Login = () => {
                         >
                         Войти
                         </button>
-                        <p className='register-link'><a href="#">Зарегистрироваться</a></p>
+                        <p className='register-link' onClick={ navigate('/register')}><a href="">Зарегистрироваться</a></p>
                     </form>                
             </div>
         </div>
