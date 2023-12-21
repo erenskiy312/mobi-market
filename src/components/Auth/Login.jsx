@@ -45,21 +45,20 @@ const Login = () => {
             <img src={Background} alt="" />
            
                     <form onSubmit={formik.handleSubmit}>
-                        
-                        {/* <label htmlFor="name">Имя пользователя</label> */}
                         <input
                         style={(formik.touched.name && formik.errors.name ? 
-                        {color: 'red', borderBottom: '1px solid red'} 
-                        : 
-                        {color: 'black', borderBottom: '1px solid #e0e0e0' })} 
-                        className='name-input' 
-                        placeholder='Имя пользователя'
-                        type='text'
-                        name='name'
-                        value={formik.values.name}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                         />
+                            {color: 'red', borderBottom: '1px solid red'} 
+                            : 
+                            {color: 'black', borderBottom: '1px solid #e0e0e0' })} 
+                            className='name-input' 
+                            placeholder='Имя пользователя'
+                            type='text'
+                            name='name'
+                            value={formik.values.name}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            />
+                        {/* <label htmlFor="name">Имя пользователя</label> */}
                          {formik.touched.name && formik.errors.name ? <p className='login-error-name'>{formik.errors.name}</p> : null}
 
                          {/* <label htmlFor="password">Пароль</label> */}
@@ -110,7 +109,7 @@ const Login = () => {
                         >
                         Войти
                         </button>
-                        <p className='register-link' onClick={ navigate('/register')}><a href="">Зарегистрироваться</a></p>
+                        <p className='register-link' onClick={() => navigate('/register')}><a href="">Зарегистрироваться</a></p>
                     </form>                
             </div>
         </div>
