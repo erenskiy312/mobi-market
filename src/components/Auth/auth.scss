@@ -1,7 +1,10 @@
 div{
+    .login-container,
     .register-container{
         display: flex;
     }
+
+    // LOGIN START
 
     form{
         display: flex;
@@ -11,7 +14,9 @@ div{
         margin-top: -17%;
         gap: 26px;
 
-        .name-input, .password-input{
+        .name-input, 
+        .password-input
+        .email-input{
             border: none;
             border-bottom: 1px solid #999;
             font-size: 17px;
@@ -35,7 +40,8 @@ div{
             cursor: pointer;
         }
 
-        .login-error-password{
+        .login-error-password,
+        .register-error-email{
             position: absolute;
             color: red;
             font-size: 15px;
@@ -89,4 +95,9 @@ div{
                 }
         }
     }
+    //! LOGIN END
+    
+    // REGISTER START
+        
+    //! REGISTER END   
 }

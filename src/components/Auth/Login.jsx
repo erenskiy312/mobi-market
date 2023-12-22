@@ -41,7 +41,7 @@ const Login = () => {
 
     return (
         <div>
-            <div className='register-container'>
+            <div className='login-container'>
             <img src={Background} alt="" />
            
                     <form onSubmit={formik.handleSubmit}>
@@ -49,7 +49,7 @@ const Login = () => {
                         style={(formik.touched.name && formik.errors.name ? 
                             {color: 'red', borderBottom: '1px solid red'} 
                             : 
-                            {color: 'black', borderBottom: '1px solid #e0e0e0' })} 
+                            null)} 
                             className='name-input' 
                             placeholder='Имя пользователя'
                             type='text'
@@ -59,7 +59,10 @@ const Login = () => {
                             onBlur={formik.handleBlur}
                             />
                         {/* <label htmlFor="name">Имя пользователя</label> */}
-                         {formik.touched.name && formik.errors.name ? <p className='login-error-name'>{formik.errors.name}</p> : null}
+                         {formik.touched.name && formik.errors.name ? 
+                         <p className='login-error-name'>{formik.errors.name}</p>
+                          : 
+                          null}
 
                          {/* <label htmlFor="password">Пароль</label> */}
                         
@@ -67,7 +70,7 @@ const Login = () => {
                         style={(formik.touched.password && formik.errors.password ? 
                         {color: 'red', borderBottom: '1px solid red'} 
                         : 
-                        {color: 'black', borderBottom: '1px solid #e0e0e0' })}
+                        null)}
                         placeholder='Пароль' 
                         className='password-input'
                         type={showPassword ? 'text' : 'password'}
