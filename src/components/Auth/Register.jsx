@@ -36,7 +36,7 @@ const Register = () => {
                             : 
                             null)} 
                             className='name-input' 
-                            placeholder='Имя пользователя'
+                            placeholder='Имя пользователяя'
                             type='text'
                             name='name'
                             value={formik.values.name}
