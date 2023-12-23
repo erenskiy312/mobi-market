@@ -2,7 +2,7 @@ div{
     .login-container,
     .register-container{
         display: flex;
-    }
+    
 
     // LOGIN START
 
@@ -11,11 +11,11 @@ div{
         flex-direction: column;
         justify-content: center;
         margin-left: 13%;
-        margin-top: -17%;
+        margin-top: -18%;
         gap: 26px;
 
         .name-input, 
-        .password-input
+        .password-input,
         .email-input{
             border: none;
             border-bottom: 1px solid #999;
@@ -23,29 +23,29 @@ div{
             height: 3%;
             width: 43vh;
             outline: 0;
+            margin-top: 4%;
         }
 
         .login-error-name{
             position: absolute;
             color: red;
             font-size: 15px;
-            margin-top: -15vh;
+            margin-top: -17vh;
         }
 
         .eye-disable, 
         .eye-active{
             position: absolute;
             margin-left: 40vh;
-            margin-top: -4%;
+            margin-top: -3%;
             cursor: pointer;
         }
 
-        .login-error-password,
-        .register-error-email{
+        .login-error-password{
             position: absolute;
             color: red;
             font-size: 15px;
-            margin-top: 21px;
+            margin-top: 27px;
         }
 
         .forgot-password{
@@ -64,6 +64,7 @@ div{
             border: none;
             border-radius: 47px;
             padding: 4%;
+            margin-top: 6%;
             background: #5458EA;
             font-weight: 600;
             cursor: pointer;
@@ -76,6 +77,7 @@ div{
             border: none;
             border-radius: 47px;
             padding: 4%;
+            margin-top: 6%;
             background: #bababa;
             font-weight: 600;
             cursor: default;
@@ -85,7 +87,7 @@ div{
         .register-link{
             position: absolute;
             margin-left: 7%;
-            margin-top: 48%;
+            margin-top: 49%;
 
                 a{
             text-decoration: none;
@@ -96,8 +98,152 @@ div{
         }
     }
     //! LOGIN END
+
+
+    
     
     // REGISTER START
+    nav{
+        position: absolute;
+        display: flex;
+        margin-left: 85%;
         
+        .arrow-back{
+            margin-top: 10%;
+            margin-left: -218%;
+            cursor: pointer;
+        }
+        
+        p{
+            margin-top: 12%;
+            margin-left: 3%;
+            font-weight: 500;
+        }
+        
+        h3{
+            color: #494949;
+        margin-left: 73%;
+        margin-top: 11%;
+    }
+    
+    }
+
+    form{
+        .register-error-name{
+            position: absolute;
+            color: red;
+            font-size: 15px;
+            margin-top: -11vh         
+        }
+        
+        .register-error-email{
+            position: absolute;
+            color: red;
+            font-size: 15px;
+            margin-top: 10vh
+        }
+    }
     //! REGISTER END   
+}
+
+// PHONE NUMBER MODAL START
+// .modal-overlay{
+//     backdrop-filter: blur(2px);
+//     background: rgba(0, 0, 0, 0.3);
+// }
+div.ReactModal__Overlay.ReactModal__Overlay--after-open{
+    background: rgba(0, 0, 0, 0.4)!important;
+    backdrop-filter: blur(2px);
+}
+.phoneNumber-modal{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-top: 17%;
+    border-radius: 35px;
+    width: 40%;
+    height: 67%;
+    border: none;
+    outline: none   ;
+
+h2{
+    color: #494949;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 8%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+
+h3{
+    color: #494949;
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+p{
+    color: #C0C0C0;
+    font-size: 17px;
+    margin-top: -3%;
+}
+
+p{
+    color: #C0C0C0;
+    font-size: 17px;
+    margin-top: -3%;
+}
+
+input{
+    color: #494949;
+    font-family: inherit;
+    font-size: 29px;
+    margin-left: 17%;
+    margin-top: 2%;
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+
+button{
+    color: #9CA4AB;
+    font-size: 17px;
+    font-weight: bold;
+    background: #F7F7F8;
+    border-radius: 15px;
+    padding: 4%;
+    width: 58%;
+    margin-top: 9%;
+    border: none;
+}
+
+button:enabled{
+    color: white;
+    background: #5458EA;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:disabled{
+    color: #9CA4AB;
+    background: #F7F7F8;
+    cursor: default;
+    transition: 0.2s;
+}
+
+
+
+}
+
+
+
+}
+
+//! PHONE NUMBER MODAL END 
 }

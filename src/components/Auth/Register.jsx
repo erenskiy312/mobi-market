@@ -4,6 +4,8 @@ import React from 'react';
 import Background from '../img/mobimarket-background.svg'
 import "./auth.scss"
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'
+import { ReactComponent as ArrowBack } from '../img/arrow-back.svg'
 const Register = () => {
     const navigate = useNavigate()
 
@@ -25,10 +27,23 @@ const Register = () => {
             console.log(values);
         }
     })
+
+    const registerToastifyMessage = () => {
+        toast.error('Неверный логин или почта', {
+        position: toast.POSITION.TOP_CENTER,
+        }
+    )
+    }
     return (
         <div>
             <div className='register-container'>
+                    
             <img src={Background} alt="" />
+                    <nav>
+                        <ArrowBack onClick={() => navigate('/login')} className='arrow-back'/>
+                        <p>Назад</p>
+                        <h3>Регистрация</h3>
+                    </nav>
                     <form onSubmit={formik.handleSubmit}>
                         <input
                         style={(formik.touched.name && formik.errors.name ? 
@@ -45,7 +60,7 @@ const Register = () => {
                             />
                         {/* <label htmlFor="name">Имя пользователя</label> */}
                          {formik.touched.name && formik.errors.name ? 
-                         <p className='login-error-name'>{formik.errors.name}</p>
+                         <p className='register-error-name'>{formik.errors.name}</p>
                           : 
                           null}
 
@@ -76,7 +91,7 @@ const Register = () => {
                         <button
                         disabled={!formik.isValid || formik.values.name === '' || formik.values.email === ''}
                         className={formik.isValid ? 'enabled' : 'disabled'}
-                        onClick={() => navigate('/')}
+                        onClick={registerToastifyMessage}
                         style=
                         {(formik.touched.name && formik.errors.name
                         ||
