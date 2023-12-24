@@ -152,8 +152,10 @@ div{
 //     background: rgba(0, 0, 0, 0.3);
 // }
 div.ReactModal__Overlay.ReactModal__Overlay--after-open{
+    position: absolute !important;
     background: rgba(0, 0, 0, 0.4)!important;
     backdrop-filter: blur(2px);
+    height: 132%;
 }
 .phoneNumber-modal{
     background-color: white;
@@ -163,9 +165,10 @@ div.ReactModal__Overlay.ReactModal__Overlay--after-open{
     margin-top: 17%;
     border-radius: 35px;
     width: 40%;
-    height: 67%;
+    height: 51%;
     border: none;
-    outline: none   ;
+    outline: none;
+    
 
 h2{
     color: #494949;

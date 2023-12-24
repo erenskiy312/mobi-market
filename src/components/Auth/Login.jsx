@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
 import Modal from 'react-modal';
 import { ReactComponent as PhoneIcon } from '../img/phone-icon.svg'
+import {ReactComponent as PersonIcon} from '../img/person-icon.svg'
 import InputMask from 'react-input-mask';
 Modal.setAppElement('#root');
 
@@ -15,7 +16,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
-    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [PhoneModalIsOpen, setPhoneModalIsOpen] = useState(false)
 
     const formik = useFormik({
         initialValues: {
@@ -68,12 +69,12 @@ const Login = () => {
         })
     }
 
-    const openModal = () => {
-        setModalIsOpen(true)
+    const openPhoneModal = () => {
+        setPhoneModalIsOpen(true)
     }
 
-    const closeModal = () => {
-        setModalIsOpen(false)
+    const closePhoneModal = () => {
+        setPhoneModalIsOpen(false)
     }
 
     return (
@@ -130,7 +131,7 @@ const Login = () => {
                         :
                         null}
                         
-                         <p className='forgot-password'><a onClick={openModal}>Забыли пароль</a></p>
+                         <p className='forgot-password'><a onClick={openPhoneModal}>Забыли пароль</a></p>
 
                          
 
@@ -151,12 +152,11 @@ const Login = () => {
                         </button>
                         <p className='register-link' ><a onClick={() => navigate('/register')}>Зарегистрироваться</a></p>
                     </form>
-
+                            {/* PHONE MODAL */}
                     <Modal
-                    style={{backdropFilter: 'blur(2px)', background: 'rgba(0, 0, 0, 0.3)'}}
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    contentLabel='Пример модального окна'
+                    isOpen={PhoneModalIsOpen}
+                    onRequestClose={closePhoneModal}
+                    contentLabel='Модальное окно номера телефона'
                     // overlayClassName='modal-overlay'
                     className='phoneNumber-modal'
                     >
@@ -182,7 +182,11 @@ const Login = () => {
                     Далее
                     </button>
                     </form>
-                    </Modal>                
+                    </Modal>
+                    {/* CODE MODAL */}
+                    <Modal>
+                        
+                    </Modal>            
             </div>
         </div>
     );
