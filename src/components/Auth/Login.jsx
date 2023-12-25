@@ -185,7 +185,9 @@ const Login = () => {
                     </Modal>
                     {/* CODE MODAL */}
                     <Modal>
-                        
+                        <div>
+                            
+                        </div>
                     </Modal>            
             </div>
         </div>
