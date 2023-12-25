@@ -16,7 +16,8 @@ const Login = () => {
     const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
-    const [PhoneModalIsOpen, setPhoneModalIsOpen] = useState(false)
+    const [phoneModalIsOpen, setPhoneModalIsOpen] = useState(false)
+    const [codeModalIsOpen, setCodeModalIsOpen] = useState(false)
 
     const formik = useFormik({
         initialValues: {
@@ -46,13 +47,19 @@ const Login = () => {
 
     const modalFormik = useFormik({
         initialValues: {
-            phoneNumber: '', 
+            phoneNumber: '',
+            code: '',
         },
         validationSchema: yup.object({
             phoneNumber: 
             yup.string()
             .required('Введите номер телефона')
-            .min(14, 'Номер телефона должен содержать не менее 10 цифр')
+            .min(14, 'Номер телефона должен содержать не менее 10 цифр'),
+
+            // code:
+            // yup.string()
+            // .required('Введите 4-х значный код')
+            // .matches(/^\d{4}$/, 'Код должен состоять из 4-х цифр')
         }),
         onSubmit: (values) => {
             console.log(values);
@@ -74,6 +81,16 @@ const Login = () => {
     }
 
     const closePhoneModal = () => {
+        setPhoneModalIsOpen(false)
+    }
+
+    const openCodeModal = (e) => {
+        e.preventDefault()
+        setCodeModalIsOpen(true)
+    }
+
+    const closeCodeModal = () => {
+        setCodeModalIsOpen(false)
         setPhoneModalIsOpen(false)
     }
 
@@ -154,7 +171,7 @@ const Login = () => {
                     </form>
                             {/* PHONE MODAL */}
                     <Modal
-                    isOpen={PhoneModalIsOpen}
+                    isOpen={phoneModalIsOpen}
                     onRequestClose={closePhoneModal}
                     contentLabel='Модальное окно номера телефона'
                     // overlayClassName='modal-overlay'
@@ -172,22 +189,43 @@ const Login = () => {
                     onBlur={modalFormik.handleBlur}
                     name='phoneNumber'
                     mask='0(999) 999 999'
-                    placeholder='0 (000) 000 000'
+                    placeholder='0(000) 000 000'
                     maskChar={null}      
                     />
                     <button
                     disabled={!modalFormik.isValid || modalFormik.values.phoneNumber === ''}
                     className={modalFormik.isValid ? 'enabled' : 'disabled'}
+                    onClick={openCodeModal}
                     >
                     Далее
                     </button>
                     </form>
                     </Modal>
                     {/* CODE MODAL */}
-                    <Modal>
-                        <div>
-                            
-                        </div>
+                    <Modal
+                    isOpen={codeModalIsOpen}
+                    onRequestClose={closeCodeModal}
+                    contentLabel='Модальное окно для кода'
+                    className='code-modal'
+                    >
+                    <h2>Сброс пароля</h2>
+                    <form action="">
+                    <PersonIcon/>
+                    <h3>Введите код из СМС</h3>
+                    <InputMask
+                    value={modalFormik.values.code}
+                    onChange={modalFormik.handleChange}
+                    onBlur={modalFormik.handleBlur}
+                    id='code'
+                    name='code'
+                    mask='9 9 9 9'
+                    placeholder='0 0 0 0'
+                    maskChar={null}
+                    />
+                    <p>Повторный запрос</p>
+                    <p></p>
+                    <button></button>
+                    </form>
                     </Modal>            
             </div>
         </div>
