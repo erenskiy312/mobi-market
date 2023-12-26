@@ -86,6 +86,7 @@ const Login = () => {
 
     const openCodeModal = (e) => {
         e.preventDefault()
+        setPhoneModalIsOpen(false)
         setCodeModalIsOpen(true)
     }
 
@@ -223,8 +224,6 @@ const Login = () => {
                     maskChar={null}
                     />
                     <p>Повторный запрос</p>
-                    <p></p>
-                    <button></button>
                     </form>
                     </Modal>            
             </div>
