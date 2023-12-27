@@ -254,7 +254,7 @@ const Login = () => {
                     ) 
                     : 
                     (
-                    <p className='send-code-again'><a onClick={handleResentCode}>Отправить код еще разз</a></p>
+                    <p className='send-code-again'><a onClick={handleResentCode}>Отправить код еще раз</a></p>
                     )}
                     </form>
                     </Modal>            
