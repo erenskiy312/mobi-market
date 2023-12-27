@@ -1,6 +1,6 @@
 import { Formik, useFormik } from 'formik';
 import * as yup from 'yup'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Background from '../img/mobimarket-background.svg'
 import { ReactComponent as EyeDisable } from '../img/eye-disable.svg'
 import { ReactComponent as EyeActive } from '../img/eye-active.svg'
@@ -18,6 +18,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [phoneModalIsOpen, setPhoneModalIsOpen] = useState(false)
     const [codeModalIsOpen, setCodeModalIsOpen] = useState(false)
+    const [timer, setTimer] = useState(60)
 
     const formik = useFormik({
         initialValues: {
@@ -94,6 +95,25 @@ const Login = () => {
         setCodeModalIsOpen(false)
         setPhoneModalIsOpen(false)
     }
+
+    useEffect(() => {
+        let interval
+
+        if(timer > 0){
+            interval = setInterval(() => {
+            setTimer(prevTimer => prevTimer - 1)
+            }, 1000)
+        }
+
+        return () => clearInterval(interval)
+    }, [timer])
+// функция обратного получения кода 
+    const handleResentCode = () => {
+        setTimer(60)
+    }
+
+    const minutes = Math.floor(timer / 60)
+    const seconds = timer % 60
 
     return (
         <div>
@@ -219,11 +239,23 @@ const Login = () => {
                     onBlur={modalFormik.handleBlur}
                     id='code'
                     name='code'
-                    mask='9 9 9 9'
-                    placeholder='0 0 0 0'
+                    mask='9  9  9  9'
+                    placeholder='0  0  0  0'
                     maskChar={null}
                     />
+                    {timer > 0 ? 
+                    (
+                    <div className='timer'>  
                     <p>Повторный запрос</p>
+                    <div className='timer-circle'></div>
+                    {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+                    </div>
+                        
+                    ) 
+                    : 
+                    (
+                    <p className='send-code-again'><a onClick={handleResentCode}>Отправить код еще раз</a></p>
+                    )}
                     </form>
                     </Modal>            
             </div>
