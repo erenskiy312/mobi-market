@@ -18,6 +18,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [phoneModalIsOpen, setPhoneModalIsOpen] = useState(false)
     const [codeModalIsOpen, setCodeModalIsOpen] = useState(false)
+    const [newPasswordIsOpen, setNewPasswordIsOpen] = useState(false)
     const [timer, setTimer] = useState(60)
 
     const formik = useFormik({
@@ -83,19 +84,33 @@ const Login = () => {
 
     const closePhoneModal = () => {
         setPhoneModalIsOpen(false)
+        modalFormik.values.phoneNumber = ''
     }
 
     const openCodeModal = (e) => {
         e.preventDefault()
         setPhoneModalIsOpen(false)
         setCodeModalIsOpen(true)
+        modalFormik.values.phoneNumber = ''
+
     }
 
     const closeCodeModal = () => {
         setCodeModalIsOpen(false)
         setPhoneModalIsOpen(false)
+        modalFormik.values.code = ''
     }
 
+    const openNewPasswordModal = () => {
+        newPasswordIsOpen(true)
+        setCodeModalIsOpen(false)
+        modalFormik.values.code = ''
+    }
+
+    const closeNewPasswordModal = () => {
+        newPasswordIsOpen(false)
+
+    }
     useEffect(() => {
         let interval
 
@@ -222,6 +237,8 @@ const Login = () => {
                     </button>
                     </form>
                     </Modal>
+
+
                     {/* CODE MODAL */}
                     <Modal
                     isOpen={codeModalIsOpen}
@@ -242,6 +259,7 @@ const Login = () => {
                     mask='9  9  9  9'
                     placeholder='0  0  0  0'
                     maskChar={null}
+                    autoComplete='off'
                     />
                     {timer > 0 ? 
                     (
@@ -257,7 +275,19 @@ const Login = () => {
                     <p className='send-code-again'><a onClick={handleResentCode}>Отправить код еще раз</a></p>
                     )}
                     </form>
+
                     </Modal>            
+
+
+                    {/* NEW PASSWORD MODAL */}
+                    <Modal
+                    isOpen={newPasswordIsOpen}
+                    onRequestClose={closeNewPasswordModal}
+                    contentLabel="Модальное окно для нового пароля"
+                    className='newPassword-modal'
+                    >
+                        
+                    </Modal>
             </div>
         </div>
     );
