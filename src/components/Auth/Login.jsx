@@ -286,7 +286,7 @@ const Login = () => {
                     contentLabel="Модальное окно для нового пароля"
                     className='newPassword-modal'
                     >
-                        
+                    <h2>Новый пароль</h2>
                     </Modal>
             </div>
         </div>
