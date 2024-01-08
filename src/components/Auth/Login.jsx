@@ -3,12 +3,14 @@ import * as yup from 'yup'
 import React, { useEffect, useState } from 'react';
 import Background from '../img/mobimarket-background.svg'
 import { ReactComponent as EyeDisable } from '../img/eye-disable.svg'
+import { ReactComponent as BlackEyeDisable } from '../img/eye-disable-black.svg'
 import { ReactComponent as EyeActive } from '../img/eye-active.svg'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
 import Modal from 'react-modal';
 import { ReactComponent as PhoneIcon } from '../img/phone-icon.svg'
 import {ReactComponent as PersonIcon} from '../img/person-icon.svg'
+import {ReactComponent as PasswordIcon} from '../img/password-icon.svg'
 import InputMask from 'react-input-mask';
 Modal.setAppElement('#root');
 
@@ -16,6 +18,9 @@ const Login = () => {
     const navigate = useNavigate()
 
     const [showPassword, setShowPassword] = useState(false)
+    const [showNewPassword, setShowNewPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
     const [phoneModalIsOpen, setPhoneModalIsOpen] = useState(false)
     const [codeModalIsOpen, setCodeModalIsOpen] = useState(false)
     const [newPasswordIsOpen, setNewPasswordIsOpen] = useState(false)
@@ -25,7 +30,6 @@ const Login = () => {
         initialValues: {
            name: '',
            password: '',
-           phoneNumber: '',
         },
         validationSchema: yup.object({
             name: 
@@ -47,7 +51,7 @@ const Login = () => {
     },
     )
 
-    const modalFormik = useFormik({
+    const phoneFormik = useFormik({
         initialValues: {
             phoneNumber: '',
             code: '',
@@ -67,9 +71,46 @@ const Login = () => {
             console.log(values);
         }
     })
+
+    const passwordFormik = useFormik({
+        initialValues: {
+            newPassword: '',
+            confirmPassword: ''
+        },
+        validationSchema: yup.object({
+            newPassword: yup.string()
+            .required('Введите пароль')
+            .matches(/[a-zA-Z]+/, 'Пароль должен состоять только из латинских букв')
+            .matches(/[A-Z]/, 'Пароль должен состоять из одной заглавной буквы')
+            .min(8, 'Пароль должен состоять минимум из 8 символов')
+            .matches(/\d/, 'Пароль должен состоять минимум из одной цифры'),
+
+            confirmPassword: yup.string()
+            .oneOf([yup.ref('newPassword'), null], 'Пароли не совпадают')
+            .required('Повторите новый пароль')
+        }),
+        onSubmit: (values) => {
+            console.log(values);
+        }
+    })
+
+
     
     const handleTogglePassword = () => {
         setShowPassword(!showPassword)
+    }
+
+    const handleToggleNewPassword = () => {
+        setShowNewPassword(!showNewPassword)
+    }
+
+    const handleToggleConfirmPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword)
+    }
+
+    const handleToggleAllPasswords = () => {
+        setShowNewPassword(!showNewPassword)
+        setShowConfirmPassword(!showConfirmPassword)
     }
 
     const loginToastifyMessage = () => {
@@ -84,31 +125,32 @@ const Login = () => {
 
     const closePhoneModal = () => {
         setPhoneModalIsOpen(false)
-        modalFormik.values.phoneNumber = ''
+        phoneFormik.values.phoneNumber = ''
     }
 
     const openCodeModal = (e) => {
         e.preventDefault()
         setPhoneModalIsOpen(false)
         setCodeModalIsOpen(true)
-        modalFormik.values.phoneNumber = ''
+        phoneFormik.values.phoneNumber = ''
 
     }
 
     const closeCodeModal = () => {
         setCodeModalIsOpen(false)
         setPhoneModalIsOpen(false)
-        modalFormik.values.code = ''
+        phoneFormik.values.code = ''
     }
 
-    const openNewPasswordModal = () => {
-        newPasswordIsOpen(true)
+    const openNewPasswordModal = (e) => {
+        e.preventDefault()
+        setNewPasswordIsOpen(true)
         setCodeModalIsOpen(false)
-        modalFormik.values.code = ''
+        phoneFormik.values.code = ''
     }
 
     const closeNewPasswordModal = () => {
-        newPasswordIsOpen(false)
+        setNewPasswordIsOpen(false)
 
     }
     useEffect(() => {
@@ -220,17 +262,17 @@ const Login = () => {
                     <p>Мы отправим вам СМС c кодом </p>
                     <p>подтверждения</p>
                     <InputMask
-                    value={modalFormik.values.phoneNumber}
-                    onChange={modalFormik.handleChange}
-                    onBlur={modalFormik.handleBlur}
+                    value={phoneFormik.values.phoneNumber}
+                    onChange={phoneFormik.handleChange}
+                    onBlur={phoneFormik.handleBlur}
                     name='phoneNumber'
                     mask='0(999) 999 999'
                     placeholder='0(000) 000 000'
                     maskChar={null}      
                     />
                     <button
-                    disabled={!modalFormik.isValid || modalFormik.values.phoneNumber === ''}
-                    className={modalFormik.isValid ? 'enabled' : 'disabled'}
+                    disabled={!phoneFormik.isValid || phoneFormik.values.phoneNumber === ''}
+                    className={phoneFormik.isValid ? 'enabled' : 'disabled'}
                     onClick={openCodeModal}
                     >
                     Далее
@@ -251,9 +293,9 @@ const Login = () => {
                     <PersonIcon/>
                     <h3>Введите код из СМС</h3>
                     <InputMask
-                    value={modalFormik.values.code}
-                    onChange={modalFormik.handleChange}
-                    onBlur={modalFormik.handleBlur}
+                    // value={modalFormik.values.code}
+                    // onChange={modalFormik.handleChange}
+                    // onBlur={modalFormik.handleBlur}
                     id='code'
                     name='code'
                     mask='9  9  9  9'
@@ -274,6 +316,7 @@ const Login = () => {
                     (
                     <p className='send-code-again'><a onClick={handleResentCode}>Отправить код еще раз</a></p>
                     )}
+                    <button onClick={openNewPasswordModal}>Далее</button>
                     </form>
 
                     </Modal>            
@@ -286,7 +329,77 @@ const Login = () => {
                     contentLabel="Модальное окно для нового пароля"
                     className='newPassword-modal'
                     >
-                        
+                    <h2>Новый пароль</h2>
+
+                    {showNewPassword && showConfirmPassword ?
+                    <EyeActive onClick={handleToggleAllPasswords} className='black-eye-active'/>
+                    :
+                    <BlackEyeDisable onClick={handleToggleAllPasswords} className='black-eye-disable'/>
+                    }
+
+                    <form action="">
+                    <PasswordIcon/>
+                    <h3>Придумайте пароль</h3>
+                    <p>Минимальная длина — 8 символов.</p>
+                    <p>Для надежности пароль должен</p>
+                    <p>содержать буквы и цифры</p>
+
+                    <input
+                    style={(passwordFormik.touched.newPassword && passwordFormik.errors.newPassword ? 
+                    {color: 'red', borderBottom: '1px solid red'}
+                    :
+                    null)}
+                    className='newPassword-input'
+                    type={showNewPassword ? 'text' : 'password'} 
+                    placeholder='Пароль'
+                    name='newPassword'
+                    values={passwordFormik.values.newPassword}
+                    onChange={passwordFormik.handleChange}
+                    onBlur={passwordFormik.handleBlur}
+                    />
+                    {showNewPassword ?
+                    <EyeActive onClick={handleToggleNewPassword} className='eye-active-new'/>
+                    :
+                    <EyeDisable onClick={handleToggleNewPassword} className='eye-disable-new'/>
+                    }
+
+                    <input
+                    style={(passwordFormik.touched.confirmPassword && passwordFormik.errors.confirmPassword ? 
+                        {color: 'red', borderBottom: '1px solid red'}
+                        :
+                        null)}
+                    className='confirmPassword-input' 
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    placeholder='Повторите пароль'
+                    name='confirmPassword'
+                    values={passwordFormik.values.confirmPassword}
+                    onChange={passwordFormik.handleChange}
+                    onBlur={passwordFormik.handleBlur} 
+                    />
+                    {showConfirmPassword ?
+                    <EyeActive onClick={handleToggleConfirmPassword} className='eye-active-confirm'/>
+                    :
+                    <EyeDisable onClick={handleToggleConfirmPassword} className='eye-disable-confirm'/>
+                    }
+                    { passwordFormik.touched.newPassword && passwordFormik.errors.newPassword ||passwordFormik.touched.confirmPassword && passwordFormik.errors.confirmPassword ?
+                    <p className='error-newPassword'>{ passwordFormik.errors.newPassword || passwordFormik.errors.confirmPassword}</p>
+                    :
+                    null
+                    }
+
+                    <button
+                    onClick={closeNewPasswordModal}
+                    disabled={
+                    !passwordFormik.isValid 
+                    || 
+                    passwordFormik.values.newPassword === '' 
+                    || 
+                    passwordFormik.values.confirmPassword === ''
+                    }
+                    className={passwordFormik.isValid ? 'enabled' : 'disabled'}>
+                    Далее
+                    </button>
+                    </form>
                     </Modal>
             </div>
         </div>
