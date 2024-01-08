@@ -86,12 +86,12 @@ const Register = () => {
                         {formik.errors.email}
                         </p> 
                         :
-                        null}         
+                        null}
 
                         <button
                         disabled={!formik.isValid || formik.values.name === '' || formik.values.email === ''}
                         className={formik.isValid ? 'enabled' : 'disabled'}
-                        onClick={registerToastifyMessage}
+                        onClick={() => navigate('/create-password')}
                         style=
                         {(formik.touched.name && formik.errors.name
                         ||
