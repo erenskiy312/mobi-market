@@ -1,0 +1,84 @@
+div{
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+
+        .mobiMarket-logo{
+            margin-left: 3%;
+            margin-top: 2%;
+        }
+
+        button{
+            color: white;
+            position: absolute;
+            background: #5458EA;
+            font-weight: 600;
+            font-size: 17px;
+            width: 15%;
+            border-radius: 30px;
+            margin-left: 68%;
+            margin-top: 2%;
+            padding: 13px;
+            border: none;
+            cursor: pointer;
+        }
+
+        div{
+            // margin-left: 69%;
+            // display: flex;
+            // flex-direction: column;
+
+            h3{
+                color: #494949;
+                margin-left: -7vh;
+                margin-top: 27%;
+                font-weight: 500;
+            }
+
+            p{
+            color: #494949;
+            margin-left: -100%;
+            margin-top: -15%;
+            font-size: 18px;
+
+            }
+
+        }
+        .profile-icon{
+        position: absolute;
+        width: 8vh;
+        margin-left: 93%;
+        margin-top: 1%;
+
+        }
+    }
+
+    .addProduct-modal{
+        background-color: white;
+        margin-left: 30%;
+        margin-top: 19%;
+        border-radius: 30px;
+        width: 40%;
+        height: 47%;
+        border: none;
+        outline: none;
+
+        .remove-icon{
+            cursor: pointer;
+            position: absolute;
+            margin-left: 37%;
+            margin-top: 1%;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+
+            div{
+                margin-left: 3%;
+                margin-top: 9%;
+            }
+        }
+    }
+}

@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import Home from './components/Auth/Home';
+import Home from './components/Product/Home';
 import CreatePassword from "./components/Auth/CreatePassword";
+import Profile from "./components/Profile/Profile";
 function App() {
   return (
     <div>
@@ -10,8 +11,8 @@ function App() {
       <Routes>
 
       <Route 
-      path="/login"
-      element={<Login/>} 
+      path="/"
+      element={<Home/>} 
       />
 
       <Route
@@ -20,13 +21,18 @@ function App() {
       />
       
       <Route 
-      path="/"
+      path="/login"
       element={<Login/>} 
       />
 
       <Route
       path="/create-password"
       element={<CreatePassword/>}
+      />
+
+      <Route
+      path="/profile"
+      element={<Profile/>}
       />
 
       </Routes>
