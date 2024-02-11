@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/mobi-market/static/css/main.9aacb3bc.css",
-    "main.js": "/mobi-market/static/js/main.06a73b93.js",
+    "main.css": "/mobi-market/static/css/main.1d1f1906.css",
+    "main.js": "/mobi-market/static/js/main.ba210462.js",
     "static/media/mobimarket-background.svg": "/mobi-market/static/media/mobimarket-background.6f9d3073f9c4bf477306de68d6db51af.svg",
     "static/media/mobiMarket-logo.svg": "/mobi-market/static/media/mobiMarket-logo.897dcceba09284d8a3e88c5be0e421a5.svg",
     "static/media/addPhoto-icon.svg": "/mobi-market/static/media/addPhoto-icon.6c9ee6236b57be364c08e4a06ce83ba4.svg",
@@ -15,11 +15,11 @@
     "static/media/eye-active.svg": "/mobi-market/static/media/eye-active.05f46fb734ce2ed0a10fd9f5895c223e.svg",
     "static/media/arrow-back.svg": "/mobi-market/static/media/arrow-back.edc1cd0b9b20bbbec49a426ffd4326d7.svg",
     "static/media/remove-icon.svg": "/mobi-market/static/media/remove-icon.614ff87a52bdc846a8766addc0247012.svg",
-    "main.9aacb3bc.css.map": "/mobi-market/static/css/main.9aacb3bc.css.map",
-    "main.06a73b93.js.map": "/mobi-market/static/js/main.06a73b93.js.map"
+    "main.1d1f1906.css.map": "/mobi-market/static/css/main.1d1f1906.css.map",
+    "main.ba210462.js.map": "/mobi-market/static/js/main.ba210462.js.map"
   },
   "entrypoints": [
-    "static/css/main.9aacb3bc.css",
-    "static/js/main.06a73b93.js"
+    "static/css/main.1d1f1906.css",
+    "static/js/main.ba210462.js"
   ]
 }
