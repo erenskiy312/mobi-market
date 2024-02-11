@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mobi-market/static/css/main.9aacb3bc.css",
+    "main.js": "/mobi-market/static/js/main.06a73b93.js",
+    "static/media/mobimarket-background.svg": "/mobi-market/static/media/mobimarket-background.6f9d3073f9c4bf477306de68d6db51af.svg",
+    "static/media/mobiMarket-logo.svg": "/mobi-market/static/media/mobiMarket-logo.897dcceba09284d8a3e88c5be0e421a5.svg",
+    "static/media/addPhoto-icon.svg": "/mobi-market/static/media/addPhoto-icon.6c9ee6236b57be364c08e4a06ce83ba4.svg",
+    "static/media/password-icon.svg": "/mobi-market/static/media/password-icon.d482857dfe73bf870e37c332877be65c.svg",
+    "static/media/phone-icon.svg": "/mobi-market/static/media/phone-icon.a1e1e25eee33aa6faf2eb1635a58b9e7.svg",
+    "static/media/person-icon.svg": "/mobi-market/static/media/person-icon.0cc92630b843104221b96855d0a08b77.svg",
+    "static/media/eye-disable.svg": "/mobi-market/static/media/eye-disable.d4bd56f59af3874cfac14b45f31d96e6.svg",
+    "static/media/eye-disable-black.svg": "/mobi-market/static/media/eye-disable-black.5793ed4516c037c2e5f01e3afbaf4edc.svg",
+    "index.html": "/mobi-market/index.html",
+    "static/media/profile-icon.svg": "/mobi-market/static/media/profile-icon.2c9cba81bb83d816156f3c641c47d71f.svg",
+    "static/media/eye-active.svg": "/mobi-market/static/media/eye-active.05f46fb734ce2ed0a10fd9f5895c223e.svg",
+    "static/media/arrow-back.svg": "/mobi-market/static/media/arrow-back.edc1cd0b9b20bbbec49a426ffd4326d7.svg",
+    "static/media/remove-icon.svg": "/mobi-market/static/media/remove-icon.614ff87a52bdc846a8766addc0247012.svg",
+    "main.9aacb3bc.css.map": "/mobi-market/static/css/main.9aacb3bc.css.map",
+    "main.06a73b93.js.map": "/mobi-market/static/js/main.06a73b93.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9aacb3bc.css",
+    "static/js/main.06a73b93.js"
+  ]
+}
