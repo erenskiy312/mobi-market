@@ -39,12 +39,17 @@ const Home = () => {
             <RemoveIcon className='remove-icon' onClick={closeAddProductModal}/>
             <form action="submit">
                 <div>
-                    <AddPhotoIcon/>
+                    <label htmlFor="fileInput">
+                        <AddPhotoIcon style={{ cursor: 'pointer'}}/>
+                    </label>
+
+                    <input id='fileInput' type="file" style={{ display: 'none'}} />
+                    
                 </div>
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
+                <input className='input-price' type="text" placeholder='Цена' />
+                <input type="text" placeholder='Название' />
+                <input type="text" placeholder='Краткое описание' />
+                <input type="text" placeholder='Полное описание' />
                 <button>Добавить</button>
             </form>
         </Modal>
