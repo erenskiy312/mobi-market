@@ -1,7 +1,8 @@
 {
-  "name": "neobook-challenge",
+  "name": "mobi-market",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://erenskiy312.github.io/mobi-market/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "formik": "^2.4.5",
+    "gh-pages": "^6.1.1",
     "navigate": "^0.3.6",
     "reack-hooks": "^0.0.1",
     "react": "^18.2.0",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [

@@ -52,7 +52,7 @@ const CreatePassword = () => {
         <div className='register-container'>
         <img src={Background} alt="" />
                 <nav>
-                    <ArrowBack onClick={() => navigate('/login')} className='arrow-back'/>
+                    <ArrowBack onClick={() => navigate('/mobi-market')} className='arrow-back'/>
                     <p>Назад</p>
                     <h3>Регистрация</h3>
                 </nav>

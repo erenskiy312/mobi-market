@@ -60,7 +60,7 @@ div{
         margin-top: 19%;
         border-radius: 30px;
         width: 40%;
-        height: 47%;
+        height: 45%;
         border: none;
         outline: none;
 
@@ -74,10 +74,68 @@ div{
         form{
             display: flex;
             flex-direction: column;
+            gap: 8px;
 
             div{
                 margin-left: 3%;
                 margin-top: 9%;
+            }
+
+            .input-price{
+                padding: 10px;
+                font-size: 17px;
+                background: #F7F6F9;
+                border: none;
+                width: 91%;
+                margin-left: 3%;
+                border-radius: 13px;
+                margin-top: 2%;
+            }
+
+            input{
+                padding: 10px;
+                font-size: 17px;
+                background: #F7F6F9;
+                border: none;
+                width: 91%;
+                margin-left: 3%;
+                border-radius: 13px;
+                outline: none;
+            }
+
+            input::placeholder{
+                color: #c0c0c0;
+                left: 10%;
+            }
+
+            button:enabled{
+                font-size: 17px;
+                color: white;
+                font-weight: 700;
+                margin: auto;
+                background: #5D5FEF;
+                margin-top: 3%;
+                width: 49%;
+                padding: 2%;
+                border-radius: 15px;
+                border: none;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            button:disabled{
+                font-size: 17px;
+                color: #9CA4AB;
+                font-weight: 700;
+                margin: auto;
+                background: #F7F7F8;
+                margin-top: 3%;
+                width: 49%;
+                padding: 2%;
+                border-radius: 15px;
+                border: none;
+                cursor: default;
+                transition: 0.2s;
             }
         }
     }
