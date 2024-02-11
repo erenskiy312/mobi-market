@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "formik": "^2.4.5",
+    "gh-pages": "^6.1.1",
     "navigate": "^0.3.6",
     "reack-hooks": "^0.0.1",
     "react": "^18.2.0",
